@@ -1,0 +1,29 @@
+{
+  "name": "bihuspider",
+  "version": "1.0.0",
+  "description": "bihuspider",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "crawler":"^1.0.1",
+    "mongoose": "^4.7.1",
+    "moment": "^2.17.1",
+    "chalk": "^1.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xi4oz3ro/bihuspider.git"
+  },
+  "keywords": [
+    "zhihu",
+    "spider"
+  ],
+  "author": "xi4oz3ro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xi4oz3ro/bihuspider/issues"
+  },
+  "homepage": "https://github.com/xi4oz3ro/bihuspider#readme"
+}
