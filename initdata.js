@@ -24,16 +24,16 @@ function connect () {
 
 function main(){
 	Logger.info('1');
-	//new Users({urlToken:'xi4oz3ro'}).save();
+	new Users({urlToken:'xi4oz3ro'}).save();
 	new Users({urlToken:'wangnuonuo'}).save();
-	// new Users({urlToken:'gejinyuban'}).save();
-	// new Users({urlToken:'yolfilm'}).save();
-	// new Users({urlToken:'ChenZhangyu'}).save();
-	// new Users({urlToken:'shenbin'}).save();
-	// new Users({urlToken:'cogito'}).save();
-	// new Users({urlToken:'jilingbhl'}).save();
-	// new Users({urlToken:'ma-bo-yong'}).save();
-	// new Users({urlToken:'xubowen'}).save();
+	new Users({urlToken:'gejinyuban'}).save();
+	new Users({urlToken:'yolfilm'}).save();
+	new Users({urlToken:'ChenZhangyu'}).save();
+	new Users({urlToken:'shenbin'}).save();
+	new Users({urlToken:'cogito'}).save();
+	new Users({urlToken:'jilingbhl'}).save();
+	new Users({urlToken:'ma-bo-yong'}).save();
+	new Users({urlToken:'xubowen'}).save();
 
 	Logger.info('2');
 }

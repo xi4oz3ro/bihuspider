@@ -84,7 +84,7 @@ const PageCrawler = new Crawler({
 					// save user detail
 					saveUserDetail(userdetail);
 					// get user following users
-					//getFollowees(target,userdetail.followingCount);
+					getFollowees(target,userdetail.followingCount);
 					// get user answers 
 					getAnswers(target,userdetail.answerCount);
 					// get user favlists
