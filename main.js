@@ -81,7 +81,7 @@ const PageCrawler = new Crawler({
 				if(u==target){
 					var userdetail = data.entities.users[u];
 					userdetail.uid = u;
-					// save user detail
+					Logger.info('Get User DATA : '+ target);
 					saveUserDetail(userdetail);
 					// get user following users
 					getFollowees(target,userdetail.followingCount);
@@ -121,7 +121,7 @@ const APICrawler = new Crawler({
         	var result = JSON.parse(res.body);
 			for (var i=0;i<result.data.length;i++) {
 				if(path=='followees'){
-					//saveUser(result.data[i]);
+					saveUser(result.data[i]);
 				}else if(path=='answers'){
 					saveAnswer(result.data[i]);
 				}else if(path=='favlists'){
@@ -234,7 +234,7 @@ function getQuestions(name,total){
 }
 
 function saveUserDetail(userdetail){
-	userdetail.updateDetail = true;
+	userdetail.hasDetail = true;
 	Users.findOne({id:userdetail.id},function(err,user){
 		if(err){
 			Logger.error('Save User Detail [ '+ userdetail.urlToken +' ] ERROR: '+err);
