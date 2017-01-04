@@ -99,10 +99,6 @@ const UsersSchema = new Schema({
 /**
  * Pre-save hook
  */
-UsersSchema.pre('update', function (next) {
-      this.lastUpdateTime = Date.now;
-      next();
-});
 
 
 /**

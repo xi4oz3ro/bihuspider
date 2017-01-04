@@ -74,10 +74,6 @@ const ZhuanlansSchema = new Schema({
 /**
  * Pre-save hook
  */
-ZhuanlansSchema.pre('update', function (next) {
-      this.lastUpdateTime = Date.now;
-      next();
-});
 /**
  * Methods
  */

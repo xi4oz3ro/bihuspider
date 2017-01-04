@@ -34,10 +34,6 @@ const FavlistsSchema = new Schema({
 /**
  * Pre-save hook
  */
-FavlistsSchema.pre('update', function (next) {
-      this.lastUpdateTime = Date.now;
-      next();
-});
 /**
  * Methods
  */

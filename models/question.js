@@ -34,10 +34,6 @@ const QuestionsSchema = new Schema({
 /**
  * Pre-save hook
  */
-QuestionsSchema.pre('update', function (next) {
-      this.lastUpdateTime = Date.now;
-      next();
-});
 /**
  * Methods
  */

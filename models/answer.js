@@ -66,10 +66,6 @@ const AnswersSchema = new Schema({
 /**
  * Pre-save hook
  */
-AnswersSchema.pre('update', function (next) {
-      this.lastUpdateTime = Date.now;
-      next();
-});
 /**
  * Methods
  */

@@ -55,10 +55,6 @@ const ArticlesSchema = new Schema({
 /**
  * Pre-save hook
  */
-ArticlesSchema.pre('update', function (next) {
-      this.lastUpdateTime = Date.now;
-      next();
-});
 /**
  * Methods
  */
