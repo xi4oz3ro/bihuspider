@@ -12,7 +12,7 @@ const Schema = mongoose.Schema;
  */
 
 const QuestionsSchema = new Schema({
-	lastUpdateTime: {type: Date, default: null },
+	lastUpdateTime: { type: Number, default: 0 },
 	created: { type: Number, default: 0 },
     url: { type: String, default: '' },
     title: { type: String, default: '' },

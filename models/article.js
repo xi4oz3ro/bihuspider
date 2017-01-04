@@ -13,7 +13,7 @@ const Schema = mongoose.Schema;
 
 const ArticlesSchema = new Schema({
 
-	lastUpdateTime: {type: Date, default: null },
+	lastUpdateTime: { type: Number, default: 0 },
 	updated: { type: Number, default: 0 },
     voting: { type: Number, default: 0 },
     author: {

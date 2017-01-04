@@ -86,7 +86,7 @@ const UsersSchema = new Schema({
   followingQuestionCount: { type: Number, default: 0 },
   thankedCount: { type: Number, default: 0 },
   hostedLiveCount: { type: Number, default: 0 },
-  lastUpdateTime: { type: Date, default: null },
+  lastUpdateTime: { type: Number, default: 0 },
   uid: { type: String, default: '' },
   hasDetail : { type: Boolean, default: false }
 });

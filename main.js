@@ -241,7 +241,7 @@ function saveUserDetail(userdetail){
 		}else{
 			if (user) {
 				Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
-				userdetail.lastUpdateTime = new Date();
+				userdetail.lastUpdateTime = new Date().getTime();
 				user.update(userdetail);
 			}else{
 				Logger.info('SAVE User Detail (Add) ' + userdetail.urlToken);
@@ -276,7 +276,7 @@ function saveAnswer(answerData){
 			}else{
 				if (answer) {
 					Logger.info('UPDATE Answer ' + answerData.id);
-					answerData.lastUpdateTime = new Date();
+					answerData.lastUpdateTime = new Date().getTime();
 					answer.update(answerData);
 				}else{
 					Logger.info('Add Answer ' + answerData.id);
@@ -295,7 +295,7 @@ function saveFavlist(favlistData){
 			}else{
 				if (favlist) {
 					Logger.info('UPDATE Favlist ' + favlistData.id);
-					favlistData.lastUpdateTime = new Date();
+					favlistData.lastUpdateTime = new Date().getTime();
 					favlist.update(favlistData);
 				}else{
 					Logger.info('Add Favlist ' + favlistData.id);
@@ -314,7 +314,7 @@ function saveArticle(articleData){
 			}else{
 				if(article){
 					Logger.info('UPDATE Article ' + articleData.id);
-					articleData.lastUpdateTime = new Date();
+					articleData.lastUpdateTime = new Date().getTime();
 					article.update(articleData);
 				}else{
 					Logger.info('Add Article ' + articleData.id);
@@ -333,7 +333,7 @@ function saveZhuanlan(zhuanlanData){
 			}else{
 				if(zhuanlan){
 					Logger.info('UPDATE Zhuanlan ' + zhuanlanData.id);
-					zhuanlanData.lastUpdateTime = new Date();
+					zhuanlanData.lastUpdateTime = new Date().getTime();
 					zhuanlan.update(zhuanlanData);
 				}else{
 					Logger.info('Add Zhuanlan ' + zhuanlanData.id);
@@ -352,7 +352,7 @@ function saveQuestion(questionData){
 			}else{
 				if(question){
 					Logger.info('UPDATE Question ' + questionData.id);
-					questionData.lastUpdateTime = new Date();
+					questionData.lastUpdateTime = new Date().getTime();
 					question.update(questionData);
 				}else{
 					Logger.info('Add Question ' + questionData.id);

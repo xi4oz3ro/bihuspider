@@ -20,7 +20,7 @@ const FavlistsSchema = new Schema({
 	updated_time: { type: Number, default: 0 },
 	url: { type: String, default: '' },
 	follower_count: { type: Number, default: 0 },
-	lastUpdateTime: {type: Date, default: null }
+	lastUpdateTime: { type: Number, default: 0 }
 });
 
 /**

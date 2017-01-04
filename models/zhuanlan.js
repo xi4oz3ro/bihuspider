@@ -12,7 +12,7 @@ const Schema = mongoose.Schema;
  */
 
 const ZhuanlansSchema = new Schema({
-	lastUpdateTime: {type: Date, default: null },
+	lastUpdateTime: { type: Number, default: 0 },
 	updated: { type: Number, default: 0 },
     title: { type: String, default: '' },
     url: { type: String, default: '' },

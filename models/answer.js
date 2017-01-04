@@ -52,7 +52,7 @@ const AnswersSchema = new Schema({
 	type: { type: String, default: '' },
 	id: { type: Number, default: 0 },
 	is_normal: { type: Boolean, default: false },
-	lastUpdateTime: { type: Date, default: null }
+	lastUpdateTime: { type: Number, default: 0 }
 });
 
 /**
