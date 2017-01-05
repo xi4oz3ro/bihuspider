@@ -64,7 +64,7 @@ const APIHeaders = {
 // user detail crawler
 const PageCrawler = new Crawler({
     maxConnections : 1,
-	rateLimit:5000,
+	rateLimit:3000,
     callback : function (error, res, done) {
     	var url = res.options.uri;
         var target = url.split('/')[4];
@@ -107,8 +107,8 @@ const PageCrawler = new Crawler({
 
 // api crawler
 const APICrawler = new Crawler({
-    maxConnections : 1,
-	rateLimit:1000,
+    maxConnections : 5,
+	rateLimit:500,
     callback : function (error, res, done) {
     	var url = res.options.uri.substr(0,res.options.uri.indexOf('?')).split('/');
         var target = url[6];
