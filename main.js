@@ -100,8 +100,8 @@ const PageCrawler = new Crawler({
     	}catch(e){
     		Logger.error('Get User Detail [ '+ target +' ] ERROR: '+e);
     	}finally{
-    		done();
     		Logger.success('Get User Detail [ '+ target +' ] Done. ');
+    		done();
     	}
     }
 });
@@ -243,9 +243,9 @@ function saveUserDetail(userdetail){
 			Logger.error('Save User Detail [ '+ userdetail.urlToken +' ] ERROR: '+err);
 		}else{
 			if (user) {
-				//Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
 				userdetail.lastUpdateTime = new Date().getTime();
 				user.update(userdetail);
+				Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
 			}else{
 				//Logger.info('SAVE User Detail (Add) ' + userdetail.urlToken);
 				new Users(userdetail).save();
