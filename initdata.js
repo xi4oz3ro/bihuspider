@@ -23,7 +23,7 @@ function connect () {
 }
 
 function main(){
-	Logger.info('1');
+	Logger.info('start');
 	new Users({urlToken:'xi4oz3ro'}).save();
 	new Users({urlToken:'wangnuonuo'}).save();
 	new Users({urlToken:'gejinyuban'}).save();
@@ -34,6 +34,6 @@ function main(){
 	new Users({urlToken:'jilingbhl'}).save();
 	new Users({urlToken:'ma-bo-yong'}).save();
 	new Users({urlToken:'xubowen'}).save();
-
-	Logger.info('2');
+	new Users({urlToken:'excited-vczh'}).save();
+	Logger.info('done');
 }

@@ -63,8 +63,8 @@ const APIHeaders = {
 
 // user detail crawler
 const PageCrawler = new Crawler({
-    maxConnections : 1,
-	rateLimit:3000,
+    maxConnections : 2,
+	rateLimit:2000,
     callback : function (error, res, done) {
     	var url = res.options.uri;
         var target = url.split('/')[4];
@@ -81,8 +81,6 @@ const PageCrawler = new Crawler({
 				if(u==target){
 					var userdetail = data.entities.users[u];
 					userdetail.uid = u;
-					Logger.info('Get User DATA : '+ target);
-					saveUserDetail(userdetail);
 					// get user following users
 					getFollowees(target,userdetail.followingCount);
 					// get user answers 
@@ -95,12 +93,15 @@ const PageCrawler = new Crawler({
 					getZhuanlans(target,userdetail.followingColumnsCount);
 
 					getQuestions(target,userdetail.followingQuestionCount);
+
+					saveUserDetail(userdetail);
 				}
 			}
     	}catch(e){
     		Logger.error('Get User Detail [ '+ target +' ] ERROR: '+e);
     	}finally{
     		done();
+    		Logger.success('Get User Detail [ '+ target +' ] Done. ');
     	}
     }
 });
@@ -137,6 +138,7 @@ const APICrawler = new Crawler({
         }catch(e){
         	Logger.error('Get API [ '+ target +' ] [ '+ path +' ] ERROR: '+e);
         }finally{
+        	Logger.success('Get API ['+ target +'] ['+ path +'] Done.');
         	done();
         }
     }
@@ -157,6 +159,7 @@ function connect () {
 function main(){
 	Logger.info('==============spider start==============');
 	Users.find({hasDetail:false},'id urlToken',null,function(err,names){
+		Logger.info('Need Update '+names.length+ ' Users.')
 		for (var i=0;i<names.length;i++) {
 			PageCrawler.queue({
 				uri:PageURL+names[i].urlToken+PageNode.following,
@@ -240,11 +243,11 @@ function saveUserDetail(userdetail){
 			Logger.error('Save User Detail [ '+ userdetail.urlToken +' ] ERROR: '+err);
 		}else{
 			if (user) {
-				Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
+				//Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
 				userdetail.lastUpdateTime = new Date().getTime();
 				user.update(userdetail);
 			}else{
-				Logger.info('SAVE User Detail (Add) ' + userdetail.urlToken);
+				//Logger.info('SAVE User Detail (Add) ' + userdetail.urlToken);
 				new Users(userdetail).save();
 			}
 		}
@@ -260,7 +263,7 @@ function saveUser(userdata){
 				Logger.error('Save User Data [ '+ userdata.urlToken+' ] ERROR: '+err);
 			}else{
 				if (user==null){
-					Logger.info('Save User Data (Add) ' + userdata.urlToken);
+					//Logger.info('Save User Data (Add) ' + userdata.urlToken);
 					new Users(userdata).save();
 				}
 			}
@@ -275,11 +278,11 @@ function saveAnswer(answerData){
 				Logger.error('Save Answer [ '+ answerData.id+' ] ERROR: '+err);
 			}else{
 				if (answer) {
-					Logger.info('UPDATE Answer ' + answerData.id);
+					//Logger.info('UPDATE Answer ' + answerData.id);
 					answerData.lastUpdateTime = new Date().getTime();
 					answer.update(answerData);
 				}else{
-					Logger.info('Add Answer ' + answerData.id);
+					//Logger.info('Add Answer ' + answerData.id);
 					new Answers(answerData).save();
 				}
 			}
@@ -294,11 +297,11 @@ function saveFavlist(favlistData){
 				Logger.error('Save Favlist [ '+ favlistData.id+' ] ERROR: '+err);
 			}else{
 				if (favlist) {
-					Logger.info('UPDATE Favlist ' + favlistData.id);
+					//Logger.info('UPDATE Favlist ' + favlistData.id);
 					favlistData.lastUpdateTime = new Date().getTime();
 					favlist.update(favlistData);
 				}else{
-					Logger.info('Add Favlist ' + favlistData.id);
+					//Logger.info('Add Favlist ' + favlistData.id);
 					new Favlists(favlistData).save();
 				}
 			}
@@ -313,11 +316,11 @@ function saveArticle(articleData){
 				Logger.error('Save Article [ '+ articleData.id+' ] ERROR: '+err);
 			}else{
 				if(article){
-					Logger.info('UPDATE Article ' + articleData.id);
+					//Logger.info('UPDATE Article ' + articleData.id);
 					articleData.lastUpdateTime = new Date().getTime();
 					article.update(articleData);
 				}else{
-					Logger.info('Add Article ' + articleData.id);
+					//Logger.info('Add Article ' + articleData.id);
 					new Articles(articleData).save();
 				}
 			}
@@ -332,11 +335,11 @@ function saveZhuanlan(zhuanlanData){
 				Logger.error('Save Zhuanlan [ '+ zhuanlanData.id+' ] ERROR: '+err);
 			}else{
 				if(zhuanlan){
-					Logger.info('UPDATE Zhuanlan ' + zhuanlanData.id);
+					//Logger.info('UPDATE Zhuanlan ' + zhuanlanData.id);
 					zhuanlanData.lastUpdateTime = new Date().getTime();
 					zhuanlan.update(zhuanlanData);
 				}else{
-					Logger.info('Add Zhuanlan ' + zhuanlanData.id);
+					//Logger.info('Add Zhuanlan ' + zhuanlanData.id);
 					new Zhuanlans(zhuanlanData).save();
 				}
 			}
@@ -351,11 +354,11 @@ function saveQuestion(questionData){
 				Logger.error('Save Question [ '+ questionData.id+' ] ERROR: '+err);
 			}else{
 				if(question){
-					Logger.info('UPDATE Question ' + questionData.id);
+					//Logger.info('UPDATE Question ' + questionData.id);
 					questionData.lastUpdateTime = new Date().getTime();
 					question.update(questionData);
 				}else{
-					Logger.info('Add Question ' + questionData.id);
+					//Logger.info('Add Question ' + questionData.id);
 					new Questions(questionData).save();
 				}
 			}

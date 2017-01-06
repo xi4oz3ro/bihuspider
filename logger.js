@@ -32,3 +32,7 @@ exports.error = function (msg) {
 exports.fatal = function (msg) {
     console.log(chalk.bgwhite.red(' FATAL ') + moment().format() + " " + msg);
 }
+
+exports.success = function (msg) {
+    console.log(chalk.green(' SUCCESS ') + moment().format() + " " + msg);
+}
