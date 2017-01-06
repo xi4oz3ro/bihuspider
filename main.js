@@ -244,7 +244,7 @@ function saveUserDetail(userdetail){
 		}else{
 			if (user) {
 				userdetail.lastUpdateTime = new Date().getTime();
-				user.update(userdetail);
+				user.save(userdetail);
 				Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
 			}else{
 				//Logger.info('SAVE User Detail (Add) ' + userdetail.urlToken);
@@ -280,7 +280,7 @@ function saveAnswer(answerData){
 				if (answer) {
 					//Logger.info('UPDATE Answer ' + answerData.id);
 					answerData.lastUpdateTime = new Date().getTime();
-					answer.update(answerData);
+					answer.save(answerData);
 				}else{
 					//Logger.info('Add Answer ' + answerData.id);
 					new Answers(answerData).save();
@@ -299,7 +299,7 @@ function saveFavlist(favlistData){
 				if (favlist) {
 					//Logger.info('UPDATE Favlist ' + favlistData.id);
 					favlistData.lastUpdateTime = new Date().getTime();
-					favlist.update(favlistData);
+					favlist.save(favlistData);
 				}else{
 					//Logger.info('Add Favlist ' + favlistData.id);
 					new Favlists(favlistData).save();
@@ -318,7 +318,7 @@ function saveArticle(articleData){
 				if(article){
 					//Logger.info('UPDATE Article ' + articleData.id);
 					articleData.lastUpdateTime = new Date().getTime();
-					article.update(articleData);
+					article.save(articleData);
 				}else{
 					//Logger.info('Add Article ' + articleData.id);
 					new Articles(articleData).save();
@@ -337,7 +337,7 @@ function saveZhuanlan(zhuanlanData){
 				if(zhuanlan){
 					//Logger.info('UPDATE Zhuanlan ' + zhuanlanData.id);
 					zhuanlanData.lastUpdateTime = new Date().getTime();
-					zhuanlan.update(zhuanlanData);
+					zhuanlan.save(zhuanlanData);
 				}else{
 					//Logger.info('Add Zhuanlan ' + zhuanlanData.id);
 					new Zhuanlans(zhuanlanData).save();
@@ -356,7 +356,7 @@ function saveQuestion(questionData){
 				if(question){
 					//Logger.info('UPDATE Question ' + questionData.id);
 					questionData.lastUpdateTime = new Date().getTime();
-					question.update(questionData);
+					question.save(questionData);
 				}else{
 					//Logger.info('Add Question ' + questionData.id);
 					new Questions(questionData).save();
