@@ -172,4 +172,38 @@ function main(){
 		}
 	});
 	// endregion USERS
+
+	// region ANSWERS
+
+	// top voteup_count answers
+	Answers.find({}).sort({voteup_count:-1}).limit(255).exec(function(err,answers){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'answers/' + 'top_voteup_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(answers)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top comment_count answers
+	Answers.find({}).sort({comment_count:-1}).limit(255).exec(function(err,answers){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'answers/' + 'top_comment_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(answers)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// endregion ANSWERS
 }
