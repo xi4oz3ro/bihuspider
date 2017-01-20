@@ -237,13 +237,13 @@ function main(){
 		}
 	});
 
-	// top voteup_count aticles
-	Articles.find({}).sort({voteup_count:-1}).limit(255).exec(function(err,aticles){
+	// top voteup_count articles
+	Articles.find({}).sort({voteup_count:-1}).limit(255).exec(function(err,articles){
 		if (err)
 			Logger.error(err);
 		else{
-			var file = PATH + 'aticles/' + 'top_voteup_count' + SUBFIX;
-			var data = 'var ____data_='+JSON.stringify(aticles)+';';
+			var file = PATH + 'articles/' + 'top_voteup_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(articles)+';';
 			fs.writeFile(file,data,'utf-8',function(err){
 				if(err){
 					Logger.error('write file ['+file+'] error: '+err);
@@ -252,13 +252,13 @@ function main(){
 		}
 	});
 
-	// top comment_count aticles
-	Articles.find({}).sort({comment_count:-1}).limit(255).exec(function(err,aticles){
+	// top comment_count articles
+	Articles.find({}).sort({comment_count:-1}).limit(255).exec(function(err,articles){
 		if (err)
 			Logger.error(err);
 		else{
-			var file = PATH + 'aticles/' + 'top_comment_count' + SUBFIX;
-			var data = 'var ____data_='+JSON.stringify(aticles)+';';
+			var file = PATH + 'articles/' + 'top_comment_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(articles)+';';
 			fs.writeFile(file,data,'utf-8',function(err){
 				if(err){
 					Logger.error('write file ['+file+'] error: '+err);
