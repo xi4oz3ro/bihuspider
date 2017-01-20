@@ -176,7 +176,7 @@ function main(){
 	// region ANSWERS
 
 	// top voteup_count answers
-	Answers.find({}).sort({voteup_count:-1}).limit(255).exec(function(err,answers){
+	Answers.find({},'-content').sort({voteup_count:-1}).limit(255).exec(function(err,answers){
 		if (err)
 			Logger.error(err);
 		else{
@@ -191,7 +191,7 @@ function main(){
 	});
 
 	// top comment_count answers
-	Answers.find({}).sort({comment_count:-1}).limit(255).exec(function(err,answers){
+	Answers.find({},'-content').sort({comment_count:-1}).limit(255).exec(function(err,answers){
 		if (err)
 			Logger.error(err);
 		else{
