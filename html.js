@@ -206,4 +206,94 @@ function main(){
 	});
 
 	// endregion ANSWERS
+
+	// top follower_count favlists
+	Favlists.find({}).sort({follower_count:-1}).limit(255).exec(function(err,favlists){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'favlists/' + 'top_follower_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(favlists)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top followers zhuanlans
+	Zhuanlans.find({}).sort({followers:-1}).limit(255).exec(function(err,zhuanlans){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'zhuanlans/' + 'top_followers_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(zhuanlans)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top voteup_count aticles
+	Articles.find({}).sort({voteup_count:-1}).limit(255).exec(function(err,aticles){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'aticles/' + 'top_voteup_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(aticles)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top comment_count aticles
+	Articles.find({}).sort({comment_count:-1}).limit(255).exec(function(err,aticles){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'aticles/' + 'top_comment_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(aticles)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top follower_count questions
+	Questions.find({}).sort({follower_count:-1}).limit(255).exec(function(err,questions){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'questions/' + 'top_follower_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(questions)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top answer_count questions
+	Questions.find({}).sort({answer_count:-1}).limit(255).exec(function(err,questions){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'questions/' + 'top_answer_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(questions)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
 }
