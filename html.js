@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 const Mongoose = require('mongoose');
 
 // require local modules
@@ -21,6 +23,8 @@ const Articles = Mongoose.model('Articles');
 const Zhuanlans = Mongoose.model('Zhuanlans');
 const Questions = Mongoose.model('Questions');
 
+const PATH = "./htmls/";
+const SUBFIX = ".js";
 // database connection
 connect()
   .on('error', Logger.error)
@@ -34,16 +38,138 @@ function connect () {
 
 function main(){
 	//top followingCount 
-	Answers.find({}).sort({voteup_count:-1}).limit(10).exec(function(err,answers){
-		if(err)
+	// Answers.find({}).sort({voteup_count:-1}).limit(10).exec(function(err,answers){
+	// 	if(err)
+	// 		Logger.error(err);
+	// 	else{
+	// 		Logger.info(answers.length);
+	// 		for(var i=0;i<answers.length;i++){
+	// 			Logger.info(answers[i].question.title);
+	// 			Logger.info(answers[i].voteup_count);
+	// 			Logger.info(answers[i].author.name);
+	// 		}
+	// 	}
+	// });
+
+	// region USERS
+
+	// top thankedCount users
+	Users.find({}).sort({thankedCount:-1}).limit(255).exec(function(err,users){
+		if (err)
 			Logger.error(err);
 		else{
-			Logger.info(answers.length);
-			for(var i=0;i<answers.length;i++){
-				Logger.info(answers[i].question.title);
-				Logger.info(answers[i].voteup_count);
-				Logger.info(answers[i].author.name);
-			}
+			var file = PATH + 'users/' + 'top_thanked_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
 		}
 	});
+	// top followerCount users 
+	Users.find({}).sort({followerCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_follower_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top voteupCount users 
+	Users.find({}).sort({voteupCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_voteup_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top favoritedCount users 
+	Users.find({}).sort({favoritedCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_favorited_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top articlesCount users 
+	Users.find({}).sort({articlesCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_articles_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top questionCount users 
+	Users.find({}).sort({questionCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_question_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top answerCount users 
+	Users.find({}).sort({answerCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_answer_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+
+	// top markedAnswersCount users 
+	Users.find({}).sort({markedAnswersCount:-1}).limit(255).exec(function(err,users){
+		if (err)
+			Logger.error(err);
+		else{
+			var file = PATH + 'users/' + 'top_markedanswers_count' + SUBFIX;
+			var data = 'var ____data_='+JSON.stringify(users)+';';
+			fs.writeFile(file,data,'utf-8',function(err){
+				if(err){
+					Logger.error('write file ['+file+'] error: '+err);
+				}
+			});
+		}
+	});
+	// endregion USERS
 }
