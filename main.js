@@ -73,7 +73,7 @@ const PageCrawler = new Crawler({
             return ;
         }
     	try{
-    		Logger.info('Get User Detail : '+ target);
+    		//Logger.info('Get User Detail : '+ target);
     		var $ = res.$;
 			var str = $('#data').attr('data-state').replace('&quot;','"');
 			var data = JSON.parse(str);
@@ -138,7 +138,7 @@ const APICrawler = new Crawler({
         }catch(e){
         	Logger.error('Get API [ '+ target +' ] [ '+ path +' ] ERROR: '+e);
         }finally{
-        	Logger.success('Get API ['+ target +'] ['+ path +'] Done.');
+        	//Logger.success('Get API ['+ target +'] ['+ path +'] Done.');
         	done();
         }
     }
