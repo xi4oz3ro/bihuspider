@@ -63,7 +63,7 @@ const APIHeaders = {
 
 // user detail crawler
 const PageCrawler = new Crawler({
-    maxConnections : 2,
+    maxConnections : 3,
 	rateLimit:2000,
     callback : function (error, res, done) {
     	var url = res.options.uri;
@@ -100,7 +100,7 @@ const PageCrawler = new Crawler({
     	}catch(e){
     		Logger.error('Get User Detail [ '+ target +' ] ERROR: '+e);
     	}finally{
-    		Logger.success('Get User Detail [ '+ target +' ] Done. ');
+    		//Logger.success('Get User Detail [ '+ target +' ] Done. ');
     		done();
     	}
     }
@@ -245,8 +245,8 @@ function saveUserDetail(userdetail){
 			if (user) {
 				userdetail.lastUpdateTime = new Date().getTime();
 				Users.update({_id:user._id},userdetail,function(err){
-					if(!err)
-						Logger.info('SAVE User Detail (Update) ' + userdetail.urlToken);
+					if(err)
+						Logger.error('SAVE User Detail (Update) ERROR:' + err);
 				});
 			}else{
 				//Logger.info('SAVE User Detail (Add) ' + userdetail.urlToken);
@@ -283,8 +283,8 @@ function saveAnswer(answerData){
 					//Logger.info('UPDATE Answer ' + answerData.id);
 					answerData.lastUpdateTime = new Date().getTime();
 					Answers.update({_id:answer._id},answerData,function(err){
-						// if(!err)
-						// 	Logger.info('UPDATE Answer ' + answerData.id);
+						 if(err)
+						 	Logger.error('UPDATE Answer ERROR:' + answerData.id + err);
 					});
 				}else{
 					//Logger.info('Add Answer ' + answerData.id);
@@ -305,8 +305,8 @@ function saveFavlist(favlistData){
 					//Logger.info('UPDATE Favlist ' + favlistData.id);
 					favlistData.lastUpdateTime = new Date().getTime();
 					Favlists.update({_id:favlist._id},favlistData,function(err){
-						// if(!err)
-						// 	Logger.info('UPDATE Favlist ' + favlistData.id);
+						 if(err)
+							Logger.error('UPDATE Favlist error:' + favlistData.id + err);
 					});
 				}else{
 					//Logger.info('Add Favlist ' + favlistData.id);
@@ -327,8 +327,8 @@ function saveArticle(articleData){
 					//Logger.info('UPDATE Article ' + articleData.id);
 					articleData.lastUpdateTime = new Date().getTime();
 					Articles.update({_id:article._id},articleData,function(err){
-						// if(!err)
-						// 	Logger.info('UPDATE Article ' + articleData.id);
+						 if(err)
+						 	Logger.error('UPDATE Article ERROR:' + articleData.id + err);
 					});
 				}else{
 					//Logger.info('Add Article ' + articleData.id);
@@ -349,8 +349,8 @@ function saveZhuanlan(zhuanlanData){
 					//Logger.info('UPDATE Zhuanlan ' + zhuanlanData.id);
 					zhuanlanData.lastUpdateTime = new Date().getTime();
 					Zhuanlans.update({_id:zhuanlan._id},zhuanlanData,function(err){
-						// if(!err)
-						// 	Logger.info('UPDATE Zhuanlan ' + zhuanlanData.id);
+						 if(err)
+						 	Logger.info('UPDATE Zhuanlan ERROR:' + zhuanlanData.id+ err);
 					});
 				}else{
 					//Logger.info('Add Zhuanlan ' + zhuanlanData.id);
@@ -371,8 +371,8 @@ function saveQuestion(questionData){
 					//Logger.info('UPDATE Question ' + questionData.id);
 					questionData.lastUpdateTime = new Date().getTime();
 					Questions.update({_id:question._id},questionData,function(err){
-						// if(!err)
-						// 	Logger.info('UPDATE Question ' + questionData.id);
+						 if(err)
+							Logger.info('UPDATE Question ERROR:' + questionData.id+err);
 					});
 				}else{
 					//Logger.info('Add Question ' + questionData.id);
