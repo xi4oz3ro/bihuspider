@@ -160,13 +160,14 @@ function main(){
 	Logger.info('==============spider start==============');
 	Users.find({hasDetail:false},'id urlToken',null,function(err,names){
 		Logger.info('Need Update '+names.length+ ' Users.')
-		for (var i=0;i<names.length;i++) {
+		for (var i=0;i<2000;i++) {
 			PageCrawler.queue({
 				uri:PageURL+names[i].urlToken+PageNode.following,
 				headers:PageHeaders,
 				limiter:'Page'
 			});
 		}
+		Logger.success('2000 over.');
 	});
 }
 
