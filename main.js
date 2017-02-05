@@ -50,7 +50,8 @@ const PageHeaders = {
 	'Cache-Control':'max-age=0',
 	'Connection':'keep-alive',
 	'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.11 Safari/537.36',
-	'Cookie': 'z_c0="Mi4wQUFEQVZ2RXBBQUFBZ0lKTXpzcjRDaGNBQUFCaEFsVk52d3VMV0FDNVoxMHRWWmplblVCZUpUU291ckl4bUlLUHFB|1482915525|9bf3b2897c04f684c3e085e22027a08bcde4caa3";login="Njk3ZGZhMTQ1OGIwNDg2NTk2MWQ1YWZlMzViYmE0ZTY=|1480911237|e831934328421f27e666c4da360548324ff4c181";'
+	'Upgrade-Insecure-Requests':'1',
+	'Cookie': 'd_c0="AICCTM7K-AqPTnBixx-2gNL2jUrV0w1lUX8=|1481274854"; _zap=4b36277d-88a4-4865-857c-9436bd880f52; q_c1=22b5c4374ad0419aacfc4b01f0e25010|1484907214000|1481274853000; _xsrf=a4c3a51b8484d90e47f1f04351073118; __utma=51854390.179780893.1484907222.1484907222.1484907222.1; __utmz=51854390.1484907222.1.1.utmcsr=localhost:3000|utmccn=(referral)|utmcmd=referral|utmcct=/zhihu/favlists/top_follower_count; __utmv=51854390.100-1|2=registration_date=20140323=1^3=entry_date=20140323=1; aliyungf_tc=AQAAANskWA1+rwAAwrYjeS/OYEAlBDws; capsion_ticket="2|1:0|10:1486277936|14:capsion_ticket|44:NjFjOWNkNTRiZmEzNDMzYTg3YzBlMzQ5OTAzYjA4ZDg=|32062841f35d4fc57e955b25a87f92f5c319bf14967d68b32c4593259ff204f4"; z_c0="2|1:0|10:1486277946|4:z_c0|92:Mi4wQUFEQVZ2RXBBQUFBZ0lKTXpzcjRDaVlBQUFCZ0FsVk5PbHEtV0FEbjVWemlhdHd4YUlCV0FES0lJZmN3THBGOWtB|d54749522beb1910bf0ed27b1f26625ed8d4f1c6c08821f4208607ff6eb21d98"'
 }; 
 const APIHeaders = {
 	'Accept':'*/*',
@@ -58,7 +59,8 @@ const APIHeaders = {
 	'Accept-Language':'en-US,en;q=0.8',
 	'Connection':'keep-alive',
 	'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36',
-	'authorization': 'Bearer Mi4wQUFEQVZ2RXBBQUFBZ0lKTXpzcjRDaGNBQUFCaEFsVk52d3VMV0FDNVoxMHRWWmplblVCZUpUU291ckl4bUlLUHFB|1482915525|9bf3b2897c04f684c3e085e22027a08bcde4caa3'
+	'authorization': 'Bearer 2|1:0|10:1486277946|4:z_c0|92:Mi4wQUFEQVZ2RXBBQUFBZ0lKTXpzcjRDaVlBQUFCZ0FsVk5PbHEtV0FEbjVWemlhdHd4YUlCV0FES0lJZmN3THBGOWtB|d54749522beb1910bf0ed27b1f26625ed8d4f1c6c08821f4208607ff6eb21d98',
+	'x-udid': '"AICCTM7K-AqPTnBixx-2gNL2jUrV0w1lUX8=|1481274854"'
 };
 
 // user detail crawler
